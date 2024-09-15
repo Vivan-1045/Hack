@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Header/>
-      {/* <h1 className='text-center font-bold text-5xl text-black'>Hii Finance</h1> */}
       <Outlet/>
       <Footer/>
     </>
