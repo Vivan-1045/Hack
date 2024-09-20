@@ -8,14 +8,12 @@ import { Route,RouterProvider,createBrowserRouter,createRoutesFromElements } fro
 import Home from './components/home/Home.jsx'
 import About from './components/about/About.jsx'
 import Contact from './components/contact/Contact.jsx'
-import View from './components/Details/View.jsx'
 import Feature from './components/feature/feature.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element = {<App/>}>
     <Route path='' element = {<Home/>}/>
-    <Route path='/View' element = {<View/>}/>
     <Route path='/About' element = {<About/>}/>
     <Route path='/features' element = {<Feature/>}/>
     <Route path='/Contact' element = {<Contact/>}/>
