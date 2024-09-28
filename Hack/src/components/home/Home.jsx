@@ -139,7 +139,7 @@ const Home = () => {
               className="flex justify-between border-b last:border-0 py-2"
             >
               <span>{expense.category}</span>
-              <span>{expense.amount.toFixed(0)}/</span>
+              <span>{expense.amount.toFixed(0)}/-</span>
               <span>
                 {expense.date}
                 {"  "}
@@ -176,7 +176,7 @@ const Home = () => {
                 className="flex justify-between border-b last:border-0 py-2"
               >
                 <span>{expense.category}</span>
-                <span>{expense.amount.toFixed(1)}/</span>
+                <span>{expense.amount.toFixed(1)}/-</span>
                 <span>
                   {expense.date}
                   {"  "}
