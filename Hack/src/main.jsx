@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from '../App.jsx'
+import App from './App.jsx'
 import './index.css'
 import { Route,RouterProvider,createBrowserRouter,createRoutesFromElements } from 'react-router-dom'
-import Home from '../components/home/Home.jsx'
-import About from '../components/about/About.jsx'
-import Contact from '../components/contact/Contact.jsx'
-import Feature from '../components/feature/feature.jsx'
+import Home from './components/home/Home.jsx'
+import About from './components/about/About.jsx'
+import Contact from './components/contact/Contact.jsx'
+import Feature from './components/feature/feature.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
