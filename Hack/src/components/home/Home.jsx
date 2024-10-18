@@ -73,7 +73,7 @@ const Home = () => {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-center mt-2">
+      <h1 className="text-4xl font-bold mb-6 text-center  mt-5">
          Manage Your Daily Expences
       </h1>
       <div className="mt-8 flex justify-center">
