@@ -1,30 +1,35 @@
 import React, { useState } from "react";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [formStatus, setFormStatus] = useState("");
+const Contact = () =>{
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const[message,setMessage] = useState("")
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormStatus("Submitting...");
-    setTimeout(() => {
-      setFormStatus(
-        "Thank you for your message! We will get back to you soon."
-      );
-      setFormData({ name: "", email: "", message: "" });
-    }, 2000);
-  };
+  const handleSubmit = async(event)=>{
+    event.preventDefault();
+    //initially
+    setMessage("Sending...");
+
+    const formData = new FormData(event.target);
+    formData.append("access_key","fc450346-2c4a-44f7-9588-6d9d504ee954")
+
+    const response = await fetch("https://api.web3forms.com/submit",
+      {
+        method : "POST",
+        body : formData
+      })
+    
+     const data = await response.json()
+    
+     //check status of data 
+    if(data.success){
+      setMessage("Message sent successfully...\n our team will resolve your problem as soon as possible")
+      event.target.reset()
+    } 
+    else{
+      console.log("Error",data)
+      setMessage(data.message)
+    }
+  }
 
   return (
     <div className="bg-gray-100 min-h-screen py-8">
@@ -46,16 +51,9 @@ const Contact = () => {
               >
                 Name
               </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
+                <input type="text" name="name" placeholder="Enter your name" 
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter your name"
-              />
+                />
             </div>
 
             <div className="mb-4">
@@ -67,10 +65,7 @@ const Contact = () => {
               </label>
               <input
                 type="email"
-                id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
@@ -85,14 +80,12 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-                id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows="5"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your query here"
+                spellCheck
               />
             </div>
 
@@ -104,13 +97,9 @@ const Contact = () => {
                 Send Message
               </button>
             </div>
-
-            {formStatus && (
-              <div className="text-center text-lg font-semibold">
-                {formStatus}
-              </div>
-            )}
+            
           </form>
+           <span>{message}</span>
         </div>
       </section>
     </div>
