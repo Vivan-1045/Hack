@@ -8,7 +8,7 @@ import { Route,RouterProvider,createBrowserRouter,createRoutesFromElements } fro
 import Home from './components/home/Home.jsx'
 import About from './components/about/About.jsx'
 import Contact from './components/contact/Contact.jsx'
-import Feature from './components/feature/feature.jsx'
+import Feature from './components/feature/Feature.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
